@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/* google font */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap&subset=korean');
+
+/* fontawesome */
+@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,section,article,aside,
+dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;}
+body {font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.5px;
+}
+ul,ol,li {list-style:none;}
+a {text-decoration: none; color: #333;}
+em {font-style: normal;}
+
+.hide {display: block; overflow: hidden; position: absolute; border:0; width: 1px; height: 1px; clip:rect(1px, 1px, 1px, 1px);}
+.clear:after {content: ''; display: block; clear: both;}

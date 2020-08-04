@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MINIONS MALL</title>
+	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="js/custom.js"></script>
@@ -10,6 +11,7 @@
 <body>
 
 	<div class="container">
+		<!-- header -->
 		<header>
 			<div class="gnb">
 				<div class="gnb-inner clear">
@@ -31,7 +33,6 @@
 							<a href="#a"><img src="images/icon-03.png" alt=""></a>
 						</div>
 					</div>
-
 					<!-- //gnb-top -->
 					<div class="navi">
 						<div class="navi-inner clear">
@@ -143,6 +144,7 @@
 		</header>
 		<!-- //header -->
 		<main>
+			<!-- visual -->
 			<section id="home" class="visual">
 				<div class="visual-inner">
 					<div class="main-minions">
@@ -208,6 +210,7 @@
 				</div>
 			</section>
 			<!-- //visual -->
+			<!-- pick -->
 			<section id="products" class="pick">
 				<div class="pick-inner">
 					<h2 class="title">MD'S PICK</h2>
@@ -306,6 +309,7 @@
 				</div>
 			</section>
 			<!-- //pick -->
+			<!-- best -->
 			<section class="best">
 				<div class="best-inner">
 					<h2 class="title">best goods</h2>
@@ -397,6 +401,7 @@
 				</div>
 			</section>
 			<!-- //best -->
+			<!-- banner -->
 			<section class="banner">
 				<div class="banner-inner"></div>
 				<p class="banner-txt">
@@ -405,6 +410,7 @@
 				</p>
 			</section>
 			<!-- //banner -->
+			<!-- media -->
 			<section id="media" class="media">
 				<div class="media-inner">
 					<h2 class="title">media</h2>
@@ -449,8 +455,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- //event -->
+			<!-- //media -->
 		</main>
+		<!-- footer -->
 		<footer>
 			<div class="footer-inner clear">
 				<div class="foot-about">
@@ -519,55 +526,91 @@
 		<div class="cart-inner">
 			<h3>간략보기</h3>
 			<div class="cart-con clear">
-				<div class="cart-product">
-					<img src="images/best-01.png" alt="">
-				</div>
-				<div class="cart-select">
-					<strong>미니언즈 피규어 세트</strong>
-					<ul>
-						<li>
-							<b>가격</b>
-							<span>28,000원</span>
-						</li>
-						<li>
-							<b>제조사</b>
-							<span>BI미디어(주)</span>
-						</li>
-						<li>
-							<b>배송비</b>
-							<span>
-								2,500원 (50,000원 이상 구매 시 무료)
-								<select name="delivery" id="delivery">
-									<option value="선택">배송비 결제 방법을 선택하세요</option>
-									<option value="주문시">주문시 결제</option>
-									<option value="수령시">수령시 결제</option>
-								</select>
-							</span>
-						</li>
-						<li>
-							<b>상품옵션</b>
-							<span>
-								<select name="product" id="product">
-									<option value="선택">상품을 선택하세요</option>
-									<option value="케빈">케빈</option>
-									<option value="밥">밥</option>
-									<option value="스튜어트">스튜어트</option>
-								</select>
-							</span>
-						</li>
-						<li>
-							<b>수량</b>
-							<span>
-								<button class="plus"></button>
-								<input type="text">
-								<button class="minus"></button>
-							</span>
-						</li>
-					</ul>
-					<div class="cart-btn">
-						<a href="#a">바로 구매하기</a>
-						<a href="#a">장바구니 담기</a>
-						<a href="#a">상품상세보기</a>
+				<div>
+					<div class="cart-product">
+						<img src="images/best-01.png" alt="">
+					</div>
+					<div class="cart-select">
+						<strong>미니언즈 피규어 세트</strong>
+						<ul>
+							<li>
+								<b>상품명</b>
+								<span>미니언즈 피규어 세트</span>
+							</li>
+							<li class="price-style">
+								<b>가격</b>
+								<span>28,000원</span>
+							</li>
+							<li>
+								<b>제조사</b>
+								<span>BI미디어(주)</span>
+							</li>
+							<li>
+								<b>배송비</b>
+								<span>
+									<select name="delivery" id="delivery">
+										<option value="선택">- [필수] 배송비 결제 방법을 선택하세요 -</option>
+										<option value="주문시">주문시 결제</option>
+										<option value="수령시">수령시 결제</option>
+									</select>
+									<em>2,500원 (50,000원 이상 구매 시 무료)</em>
+								</span>
+							</li>
+							<li>
+								<b>상품옵션</b>
+								<span>
+									<select name="product" id="product">
+										<option value="선택">- [필수] 옵션을 선택하세요 -</option>
+										<option value="케빈">케빈</option>
+										<option value="밥">밥</option>
+										<option value="스튜어트">스튜어트</option>
+									</select>
+								</span>
+							</li>
+						</ul>
+						<!-- 옵션 상품추가 -->
+						<p class="add-info">※ 옵션 선택 박스를 선택하시면 아래에 상품이 추가됩니다.</p>
+						<table class="product-add">
+							<colgroup>
+								<col width:50%>
+								<col width:25%>
+								<col width:20%>
+								<col width:5%>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>
+										<p id="product-option">미니언즈 피규어 세트
+											<em id="option">케빈</em>
+										</p>
+									</th>
+									<td>
+										<span id="count" class="count">
+											<button class="minus"><span class="hide">빼기</span></button>
+											<input type="text" value="1">
+											<button class="plus"><span class="hide">더하기</span></button>
+										</span>
+									</td>
+									<td>
+										<span class="product-price price-style"><em>28,000</em>원</span>
+									</td>
+									<td>
+										<button class="list-del">
+											<i class="fa fa-times" aria-hidden="true"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="total">
+							<b>총 상품금액</b>
+							<span class="price-style"><em>123</em>원</span>
+						</div>
+						<div class="cart-btn">
+							<a class="go-pay" href="#a">바로 구매하기</a>
+							<a class="go-cart" href="#a">장바구니 담기</a>
+							<a class="go-detail" href="#a">상품상세보기</a>
+						</div>
 					</div>
 				</div>
 			</div>
