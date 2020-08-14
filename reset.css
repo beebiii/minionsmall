@@ -8,12 +8,13 @@
 @import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
 html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,section,article,aside,
-dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;}
-body {font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.5px;
-}
+dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
+body, input, select, textarea, button {font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.5px;}
 ul,ol,li {list-style:none;}
 a {text-decoration: none; color: #333;}
-em {font-style: normal;}
+em, address {font-style: normal;}
+table{width:100%;border-spacing:0;border-collapse:collapse;}
 
-.hide {display: block; overflow: hidden; position: absolute; border:0; width: 1px; height: 1px; clip:rect(1px, 1px, 1px, 1px);}
+.hide {overflow: hidden; position: absolute; margin: -1px; width: 1px; height: 1px; border:0; clip:rect(1px, 1px, 1px, 1px); clip-path: inset(50%);}
+.hide-in {overflow: hidden; display: inline-block; margin: -1px; width: 1px; height: 1px; border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%);}
 .clear:after {content: ''; display: block; clear: both;}
