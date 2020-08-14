@@ -14,6 +14,11 @@ $('.gototop').click(function () {
   }, 700);
 });
 
+//검색창
+$('.search-btn').click(function () {
+  $('.search').toggleClass('on');
+});
+
 //전체메뉴 클릭 이벤트
 $('.menu-all').hide();
 $('.shop-menu').click(function () {
@@ -25,9 +30,9 @@ $('.shop-menu').click(function () {
 //메뉴클릭 시 해당 섹션 이동
 $('.topmenu ul li a').click(function (e) {
   e.preventDefault;
-  var target = (this).attr('href');
+  var target = $(this).attr('href');
   $('html, body').stop().animate({
-    scrollTop: target.offset().top
+    scrollTop: $(target).offset().top
   }, 500);
 });
 
@@ -39,11 +44,12 @@ $(".tab-btn").click(function () {
   $(this).addClass("on");
 });
 
-//장바구니 & 동영상 모달
+//상품 간략보기
 $('.goods-cart').click(function () {
   $('.cart-modal').show();
 });
 
+//동영상 모달
 var embed = $('#player');
 $('.media-video a').click(function () {
   var path = $(this).attr('href');
@@ -73,7 +79,7 @@ $('.right-btn').click(function () {
   } else {
     $('.pick-box').stop().animate({
       marginLeft: 0
-    }, 300)
+    }, 500)
     i = 0;
   }
 });
@@ -85,11 +91,78 @@ $('.left-btn').click(function () {
       marginLeft: move
     }, 300)
   } else {
-    false
+    $('.pick-box').stop().animate({
+      marginLeft: (len-3) * (-375)
+    }, 500)
+    i = len-3;
   }
 });
 
-//검색창
-$('.search-btn').click(function () {
-  $('.search').toggleClass('on');
+//간략보기 계산
+
+var defaultPrice = $('#defult-price').text();
+var defaultPriceNum = Number(defaultPrice.replace(',',''));
+var productPrice = $('#product-price').text();
+var productPriceNum = Number(productPrice.replace(',',''));
+var productPriceResult = $('#product-price').text(productPriceNum);
+var total = $('#total').text();
+var totalNum = Number(total.replace(',',''));
+var totalResult = $('#total').text(totalNum);
+var inputCount = 1;
+var count;
+
+/* 
+  디폴트 값 가져온다 $('#defult-price').text();
+  상품옵션 선택 : 0이면 기본값 그대로, 0이 아니면 +value값 상품옵션 가격란에 출력
+  플러스/마이너스버튼 클릭할 때마다 카운터 변경
+  카운터 * 상품옵션 값 상품옵션가격에 출력
+  상품옵션에 출력된 값 토탈에 출력
+
+  배송비가 있으면 토탈에 2500원 더한다
+*/
+
+//상품옵션 선택
+$('#product').change(function(){
+  var productOpt = $(this).val();
+  if (productOpt !== '0') {
+    productPriceResult = productPriceNum + Number(productOpt);
+    $('#product-price').text(productPriceResult);
+  } else {
+    $('#product-price').text(defaultPriceNum);
+  }
 });
+
+//상품 개수 선택
+$('.count button').click('on', function(){
+  if($(this).hasClass('plus')) {
+    inputCount++;
+  } else {
+    if (inputCount > 1) {
+      inputCount--;
+    }
+  }
+  count = inputCount;
+  $('.input-count').val(count);
+  productPriceResult = productPriceNum * count;
+  var comma = Number(productPriceResult).toLocaleString('en');
+  $('#product-price').text(comma);
+});
+
+//배송비 옵션 선택
+$('#delivery').change(function(){
+  var delPay = $(this).val();
+  if (delPay === 'order') {
+    totalResult = totalNum + 2500;
+    $('#total').text(totalResult);
+  } else {
+    $('#total').text(totalNum);
+  }
+});
+
+/* 
+//총상품금액 계산하기
+$.fn.totalCalc = function() {
+  productPriceResult = productPriceNum * count;
+  var comma = Number(productPriceResult).toLocaleString('en');
+  $('#total').text(comma);
+} */

@@ -567,6 +567,9 @@ header.active .navi {
 	display: inline-block;
 	width: 100px;
 	height: 100px;
+	background-color: #eee;
+	background-repeat: no-repeat;
+	background-position: center;
 	border-radius: 50%;
 	vertical-align: top;
 	text-align: center;
@@ -575,13 +578,13 @@ header.active .navi {
 	background-color: #505050;
 }
 .tab-btn01 span {
-	background: #eee url(images/cha-01.png) no-repeat center;
+	background-image: url(images/cha-01.png);
 }
 .tab-btn02 span {
-	background: #eee url(images/cha-02.png) no-repeat center;
+	background-image: url(images/cha-02.png);
 }
 .tab-btn03 span {
-	background: #eee url(images/cha-03.png) no-repeat center;
+	background-image: url(images/cha-03.png);
 }
 
 /* section-pick */
@@ -895,14 +898,18 @@ label[for*=like],
 	width: 80px;
 	font-weight: 400;
 }
-.cart-select ul li em {
+.cart-select ul li small {
 	display: block;
 	padding: 4px 0;
+	font-size: 15px;
 	text-indent: 83px;
 }
 .price-style {
 	color: #4296de;
 	font-weight: 500;
+}
+.price-style span em {
+	display: inline-block;
 }
 .cart-select ul li select,
 .count input,
@@ -1041,7 +1048,6 @@ label[for*=like],
 	background-color: #eee;
 } 
  
-
 /* media video-modal */
 .modal {
 	display: none;
