@@ -124,12 +124,17 @@ var count;
 //상품옵션 선택
 $('#product').change(function(){
   var productOpt = $(this).val();
-  if (productOpt !== '0') {
+  console.log(productOpt);
+  var productAddHtml = '<tr><th><p id="product-option">미니언즈 피규어 세트 <em id="option"></em></p></th><td><span id="count" class="count"><button class="minus"><span class="hide">빼기</span></button><input class="input-count" type="text" value="1"><button class="plus"><span class="hide">더하기</span></button></span></td><td><span class="product-price price-style"><em id="product-price">28,000</em>원</span></td><td><button class="list-del"><i class="fa fa-times" aria-hidden="true"></i></button></td></tr>';
+  $('.product-add tbody').prepend(productAddHtml);
+  $('.product-add tbody').find($('#option')).text(productOpt);
+
+  /* if (productOpt !== '0') {
     productPriceResult = productPriceNum + Number(productOpt);
     $('#product-price').text(productPriceResult);
   } else {
     $('#product-price').text(defaultPriceNum);
-  }
+  } */
 });
 
 //상품 개수 선택
@@ -159,10 +164,10 @@ $('#delivery').change(function(){
   }
 });
 
-/* 
+
 //총상품금액 계산하기
 $.fn.totalCalc = function() {
   productPriceResult = productPriceNum * count;
   var comma = Number(productPriceResult).toLocaleString('en');
   $('#total').text(comma);
-} */
+}

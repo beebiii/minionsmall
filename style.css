@@ -850,7 +850,7 @@ label[for*=like],
 	box-sizing: border-box;
 }
 .cart-inner h3 {
-	padding: 20px 15px 10px 15px;
+	padding: 20px 15px 10px 20px;
 	width: 100%;
 	background-color: #fff;
 	border-radius: 10px 10px 0 0;
@@ -935,11 +935,14 @@ label[for*=like],
 	font-weight: 300;
 }
 .product-add {
-	border-top: 1px solid #666;
-	border-bottom: 1px solid #666;
+	border-top: 2px solid #666;
+	border-bottom: 2px solid #666;
 	width: 100%;
 	border-collapse: collapse;
 	font-size: 14px;
+}
+.product-add tr {
+	border-bottom: 1px solid #999;
 }
 .product-add th, 
 .product-add td {
@@ -996,7 +999,7 @@ label[for*=like],
 	content: '\f067';
 }
 .total {
-	padding: 40px 0 20px;
+	padding: 25px 0 20px;
 	border-bottom: 1px solid #ddd;
 }
 .total span {
