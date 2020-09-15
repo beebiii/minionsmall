@@ -419,9 +419,6 @@ header.active .navi {
   from {width: 0;}
   to {width: 100%;}
 }
-@keyframs textBar {
-  border-right: 1px solid 
-}
 .main-minions {
 	position: absolute;
 	bottom: 3%;
