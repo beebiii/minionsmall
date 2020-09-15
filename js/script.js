@@ -99,7 +99,6 @@ $('.left-btn').click(function () {
 });
 
 //간략보기 계산
-
 var defaultPrice = $('#defult-price').text();
 var defaultPriceNum = Number(defaultPrice.replace(',',''));
 var productPrice = $('#product-price').text();
@@ -111,23 +110,23 @@ var totalResult = $('#total').text(totalNum);
 var inputCount = 1;
 var count;
 
-/* 
-  디폴트 값 가져온다 $('#defult-price').text();
-  상품옵션 선택 : 0이면 기본값 그대로, 0이 아니면 +value값 상품옵션 가격란에 출력
-  플러스/마이너스버튼 클릭할 때마다 카운터 변경
-  카운터 * 상품옵션 값 상품옵션가격에 출력
-  상품옵션에 출력된 값 토탈에 출력
-
-  배송비가 있으면 토탈에 2500원 더한다
-*/
+var productAddHtml = '<tr><th><p id="product-option">미니언즈 피규어 세트 <em id="option"></em></p></th><td><span id="count" class="count"><button class="minus"><span class="hide">빼기</span></button><input class="input-count" type="text" value="1"><button class="plus"><span class="hide">더하기</span></button></span></td><td><span class="product-price price-style"><em id="product-price">28,000</em>원</span></td><td><button class="list-del"><i class="fa fa-times" aria-hidden="true"></i></button></td></tr>';
 
 //상품옵션 선택
 $('#product').change(function(){
   var productOpt = $(this).val();
-  console.log(productOpt);
-  var productAddHtml = '<tr><th><p id="product-option">미니언즈 피규어 세트 <em id="option"></em></p></th><td><span id="count" class="count"><button class="minus"><span class="hide">빼기</span></button><input class="input-count" type="text" value="1"><button class="plus"><span class="hide">더하기</span></button></span></td><td><span class="product-price price-style"><em id="product-price">28,000</em>원</span></td><td><button class="list-del"><i class="fa fa-times" aria-hidden="true"></i></button></td></tr>';
-  $('.product-add tbody').prepend(productAddHtml);
-  $('.product-add tbody').find($('#option')).text(productOpt);
+  
+  $('.product-add tbody').each(function(){
+    var optionInput = $(this).find('#option').text();
+    console.log(optionInput)
+    if (productOpt === optionInput) {
+      return false;
+    } else {
+      $(this).append(productAddHtml);
+      $(this).find($('#option')).text(productOpt);
+
+    }
+  });
 
   /* if (productOpt !== '0') {
     productPriceResult = productPriceNum + Number(productOpt);
@@ -138,7 +137,7 @@ $('#product').change(function(){
 });
 
 //상품 개수 선택
-$('.count button').click('on', function(){
+$('.count button').on('click', function(){
   if($(this).hasClass('plus')) {
     inputCount++;
   } else {
